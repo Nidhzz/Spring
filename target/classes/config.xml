@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+<bean name="address" class="com.zensar.springcore.com.zensar.springcore.project1.Address">
+
+<!-- METHOD 1 :- VALUE AS AN ATRIBUTE FOR SETTER INJECTION --> 
+<property name="state" value="Maharashtra"></property>
+<property name="city" value="Nasik"></property>
+<property name="pincode" value="422006"></property>
+
+</bean>
+
+
+<bean name="address1" class="com.zensar.springcore.com.zensar.springcore.project1.Address">
+
+
+<property name="state" value="Maharashtra"></property>
+<property name="city" value="mumbai"></property>
+<property name="pincode" value="422006"></property>
+
+</bean>
+
+
+<bean name="student3" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+
+<!-- METHOD 2 :- VALUE AS ELEMENT (SETTER INJECTION) -->
+<property name="id">
+<value>103</value>
+</property>
+
+<property name="name">
+<value>Rakesk</value>
+</property>
+
+<property name="age">
+<value>46</value>
+</property>
+
+</bean>
+
+
+<bean name="student4" class="com.zensar.springcore.com.zensar.springcore.project1.Student" p:name="Sahil" p:id="523" p:age="23">
+
+
+</bean>
+<!--  INJECT UDT WAY 2-->
+<bean name="student2" class="com.zensar.springcore.com.zensar.springcore.project1.Student" p:name="mahesh" p:id="102" p:age="22" p:a-ref="address">
+</bean>
+
+
+<bean name="student" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+<property name="id" value="111"></property>
+<property name="name" value="nidhi"></property>
+<property name="age" value="21"></property>
+<property name="a" >
+<!-- INJECT UDTS WAY 1 -->
+<ref bean="address"/>
+</property>
+
+</bean>
+
+
+
+<bean name="student5" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+<property name="id" value="852"></property>
+<property name="name" value="jyoti"></property>
+<property name="age" value="41"></property>
+<property name="a" ref="address"></property>
+<property name="marks">
+<!--INJECT COLLECTION  -->
+<list>
+<value>15</value>
+<value>65</value>
+<value>85</value>
+</list>
+</property>
+</bean>
+
+
+<bean name="student10" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+<property name="namesArray">
+<list>
+<value>abc</value>
+<value>tyj</value>
+</list>
+</property>
+</bean>
+
+<bean name="student6" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+
+<property name="id" value="852"></property>
+<property name="name" value="jyoti"></property>
+<property name="age" value="41"></property>
+<property name="a" ref="address"></property>
+<property name="marks">
+<list>
+<value>15</value>
+<value>83</value>
+<value>85</value>
+</list>
+</property>
+
+
+<property name="setAddress">
+<set>
+<ref bean="address"/>
+<ref bean="address1"/>
+</set>
+</property>
+
+</bean>
+
+<bean name="student7" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+<property name="certifications">
+<map>
+<entry key="Java " value="OCJP"></entry>
+<entry key="NETWORKING " value="CCNA"></entry>
+<entry key="Network"> 
+<value>CCNP</value>
+</entry>
+</map>
+</property>
+
+</bean>
+
+
+
+<bean name="student8" class="com.zensar.springcore.com.zensar.springcore.project1.Student">
+<property name="example">
+<map >
+
+<entry key-ref="address1" value="ABC"></entry>
+</map>
+</property>
+</bean>
+
+</beans>
